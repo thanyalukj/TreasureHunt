@@ -7,6 +7,7 @@
 #import "ESTBeaconManager.h"
 #import "ESTBeacon.h"
 #import "THProximityStyle.h"
+#import "THFirstViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 /*
@@ -14,12 +15,10 @@
  */
 #define MAX_DISTANCE 5
 
-@interface THBaseViewController () <ESTBeaconManagerDelegate>
+@interface THBaseViewController () <ESTBeaconManagerDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) ESTBeaconManager *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion *beaconRegion;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
-@property (nonatomic, strong) UIAlertView *alert;
-@property (nonatomic, strong) UILabel *dotLabel;
 @property (nonatomic) BOOL foundTreasure;
 @end
 
@@ -41,7 +40,8 @@
 }
 
 - (void)setupView {
-
+    self.specificLabel.alpha = 0;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)setupBeaconManager {
@@ -71,12 +71,38 @@
     self.detailsLabel.text = [NSString stringWithFormat:@"%0.03f - %@",
                                                         [beacon.distance floatValue], style.title];;
     [self updatePositionForDistance:[beacon.distance floatValue]];
+    if (beacon.proximity != CLProximityUnknown) {
+        [self animateShowSpecificClue];
+    }
     if (!self.foundTreasure && beacon.proximity == CLProximityImmediate) {
         self.foundTreasure = YES;
         [self showNextScreen];
         [self showAlert];
         [self stopTracking];
     }
+}
+
+#pragma mark - update screen
+- (CGFloat)topMargin {
+    return self.treasureImageView.frame.origin.y + self.treasureImageView.frame.size.height + 5;
+}
+
+- (void)updatePositionForDistance:(float)distance {
+    CGFloat step = (self.view.frame.size.height - [self topMargin]) / MAX_DISTANCE;
+    CGFloat newY = [self topMargin] + (distance * step);
+    [self.manImageView setCenter:CGPointMake(self.manImageView.center.x, newY)];
+    [self.detailsLabel setCenter:CGPointMake(self.manImageView.center.x, newY + self.manImageView.frame.size.height + 5)];
+}
+
+
+- (void)animateShowSpecificClue {
+    [UIView animateWithDuration:0.5
+                          delay:1.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                        self.specificLabel.alpha = 1;
+    }
+                     completion:nil];
 }
 
 - (void)showNextScreen {
@@ -97,21 +123,18 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self gotoNextScreen];
+    }
+}
+
 - (void)stopTracking {
     [self.beaconManager stopRangingBeaconsInRegion:self.beaconRegion];
     [self.beaconManager stopMonitoringForRegion:self.beaconRegion];
 }
 
-- (CGFloat)topMargin {
-    return self.treasureImageView.frame.origin.y + self.treasureImageView.frame.size.height + 5;
-}
 
-- (void)updatePositionForDistance:(float)distance {
-    CGFloat step = (self.view.frame.size.height - [self topMargin]) / MAX_DISTANCE;
-    CGFloat newY = [self topMargin] + (distance * step);
-    [self.manImageView setCenter:CGPointMake(self.manImageView.center.x, newY)];
-    [self.detailsLabel setCenter:CGPointMake(self.manImageView.center.x, newY + self.manImageView.frame.size.height + 5)];
-}
 
 //- (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region {
 //    NSString *message = @"Approaching to right room";

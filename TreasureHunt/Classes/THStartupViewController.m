@@ -18,7 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,7 +33,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     THFirstViewController *vc = (THFirstViewController *)segue.destinationViewController;
-    vc.majorId = 46071;
-    vc.minorId = 50760;
+    vc.majorId = 49460;
+    vc.minorId = 27867;
 }
 @end

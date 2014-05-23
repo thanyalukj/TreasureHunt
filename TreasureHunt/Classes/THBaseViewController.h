@@ -16,4 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *roomClueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *specificLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
+
+@property (nonatomic, strong) UIAlertView *alert;
+
+- (void)showAlert;
+
+- (void)gotoNextScreen;
 @end
