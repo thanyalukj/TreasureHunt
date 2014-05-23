@@ -247,8 +247,6 @@
 			mainGroup = 9CFD988F192F4BDF00EDBC0A;
 			productRefGroup = 9CFD9899192F4BDF00EDBC0A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				9CFD9897192F4BDF00EDBC0A /* TreasureHunt */,
@@ -530,6 +528,7 @@
 				9CFD98CC192F4BDF00EDBC0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CFD98CD192F4BDF00EDBC0A /* Build configuration list for PBXNativeTarget "TreasureHuntTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +537,7 @@
 				9CFD98CF192F4BDF00EDBC0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

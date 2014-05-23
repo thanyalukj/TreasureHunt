@@ -12,16 +12,15 @@
 /*
  * Maximum distance (in meters) from beacon for which, the dot will be visible on screen.
  */
-#define MAX_DISTANCE 20
-#define TOP_MARGIN   150
+#define MAX_DISTANCE 5
 
 @interface THBaseViewController () <ESTBeaconManagerDelegate>
 @property (nonatomic, strong) ESTBeaconManager *beaconManager;
 @property (nonatomic, strong) ESTBeaconRegion *beaconRegion;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, strong) UIAlertView *alert;
-@property (nonatomic, strong) UIImageView *dotImageView;
 @property (nonatomic, strong) UILabel *dotLabel;
+@property (nonatomic) BOOL foundTreasure;
 @end
 
 @implementation THBaseViewController
@@ -33,29 +32,20 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(gotoNextScreen)];
     [self setupBeaconManager];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [self.beaconManager stopRangingBeaconsInRegion:self.beaconRegion];
-    [self.beaconManager stopMonitoringForRegion:self.beaconRegion];
+    [self stopTracking];
 }
 
 - (void)setupView {
-    self.view.backgroundColor = [UIColor yellowColor];
 
-    UIImageView *beaconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"treasure"]];
-    [beaconImageView setCenter:CGPointMake(self.view.center.x, 100)];
-    [self.view addSubview:beaconImageView];
-
-    self.dotImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"man"]];
-    [self.dotImageView setCenter:self.view.center];
-    [self.view addSubview:self.dotImageView];
-
-    self.dotLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
-    [self.dotLabel setCenter:self.view.center];
-    [self.view addSubview:self.dotLabel];
 }
 
 - (void)setupBeaconManager {
@@ -82,12 +72,13 @@
 - (void)updateScreenWithBeacon:(ESTBeacon *)beacon {
     THProximityStyle *style = [THProximityStyle styleForProximity:beacon.proximity];
     self.view.backgroundColor = style.colour;
-    NSString *desc = [NSString stringWithFormat:@"%0.03f - %@",
-                    [beacon.distance floatValue], style.title];
-    self.dotLabel.text = desc;
+    self.detailsLabel.text = [NSString stringWithFormat:@"%0.03f - %@",
+                                                        [beacon.distance floatValue], style.title];;
     [self updatePositionForDistance:[beacon.distance floatValue]];
-    if (beacon.proximity == CLProximityImmediate) {
+    if (!self.foundTreasure && beacon.proximity == CLProximityImmediate) {
+        self.foundTreasure = YES;
         [self showAlert];
+        [self stopTracking];
     }
 }
 
@@ -102,42 +93,27 @@
     }
 }
 
+- (void)stopTracking {
+    [self.beaconManager stopRangingBeaconsInRegion:self.beaconRegion];
+    [self.beaconManager stopMonitoringForRegion:self.beaconRegion];
+}
+
+- (CGFloat)topMargin {
+    return self.treasureImageView.frame.origin.y + self.treasureImageView.frame.size.height + 5;
+}
+
 - (void)updatePositionForDistance:(float)distance {
-    float step = (self.view.frame.size.height - TOP_MARGIN) / MAX_DISTANCE;
-    int newY = TOP_MARGIN + (distance * step);
-    [self.dotImageView setCenter:CGPointMake(self.dotImageView.center.x, newY)];
-    [self.dotLabel setCenter:CGPointMake(self.dotImageView.center.x, newY + self.dotImageView.frame.size.height + 5)];
+    CGFloat step = (self.view.frame.size.height - [self topMargin]) / MAX_DISTANCE;
+    CGFloat newY = [self topMargin] + (distance * step);
+    [self.manImageView setCenter:CGPointMake(self.manImageView.center.x, newY)];
+    [self.detailsLabel setCenter:CGPointMake(self.manImageView.center.x, newY + self.manImageView.frame.size.height + 5)];
 }
 
 - (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region {
-    NSString *message = @"Approaching to a treasure";
-    UILocalNotification *notification = [UILocalNotification new];
-    notification.alertBody = @"Warning, cyclist approaching";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-    NSLog(@"enter");
-
+    NSString *message = @"Approaching to right room";
+    NSLog(@"enter range");
     self.audioPlayer = [self soundForNotification];
     [self.audioPlayer play];
-
-    if (!self.alert.visible) {
-        self.alert = [[UIAlertView alloc] initWithTitle:@"Treasure Hunt"
-                                                message:message
-                                               delegate:nil
-                                      cancelButtonTitle:@"Get next clue"
-                                      otherButtonTitles:nil];
-        [self.alert show];
-    }
-}
-
-- (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region {
-    NSString *message = @"You are too far away from a treasure";
-    UILocalNotification *notification = [UILocalNotification new];
-    notification.alertBody = message;
-
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-    NSLog(@"exit");
 
     if (!self.alert.visible) {
         self.alert = [[UIAlertView alloc] initWithTitle:@"Treasure Hunt"
@@ -149,6 +125,10 @@
     }
 }
 
+- (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region {
+    NSLog(@"exit range");
+}
+
 - (AVAudioPlayer *)soundForNotification {
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/alarm.wav", [[NSBundle mainBundle] resourcePath]]];
     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
@@ -156,4 +136,7 @@
     return audioPlayer;
 }
 
+- (void)gotoNextScreen {
+
+}
 @end

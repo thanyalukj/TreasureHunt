@@ -11,4 +11,9 @@
 @interface THBaseViewController : UIViewController
 @property (nonatomic) NSUInteger majorId;
 @property (nonatomic) NSUInteger minorId;
+@property (weak, nonatomic) IBOutlet UIImageView *treasureImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *manImageView;
+@property (weak, nonatomic) IBOutlet UILabel *roomClueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *specificLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailsLabel;
 @end

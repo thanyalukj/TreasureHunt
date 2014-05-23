@@ -5,6 +5,8 @@
 
 #import "THFirstViewController.h"
 
+@interface THFirstViewController ()
+@end
 
 @implementation THFirstViewController {
 
