@@ -13,7 +13,7 @@
 /*
  * Maximum distance (in meters) from beacon for which, the dot will be visible on screen.
  */
-#define MAX_DISTANCE 5
+#define MAX_DISTANCE 10
 
 @interface THBaseViewController () <ESTBeaconManagerDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) ESTBeaconManager *beaconManager;
@@ -40,7 +40,16 @@
 }
 
 - (void)setupView {
+    self.title = @"Treasure Hunt";
     self.specificLabel.alpha = 0;
+    [self.roomClueLabel.layer setBorderColor:[UIColor grayColor].CGColor];
+    [self.roomClueLabel.layer setBorderWidth:1];
+    [self.roomClueLabel.layer setCornerRadius:3.0f];
+
+    [self.specificLabel.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.specificLabel.layer setBorderWidth:1];
+    [self.specificLabel.layer setCornerRadius:3.0f];
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
@@ -71,7 +80,7 @@
     self.detailsLabel.text = [NSString stringWithFormat:@"%0.03f - %@",
                                                         [beacon.distance floatValue], style.title];;
     [self updatePositionForDistance:[beacon.distance floatValue]];
-    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate) {
+    if (beacon.proximity != CLProximityUnknown) {
         [self animateShowSpecificClue];
     }
     if (!self.foundTreasure && beacon.proximity == CLProximityImmediate) {
@@ -117,10 +126,11 @@
 
 - (void)showAlert {
     if (!self.alert.visible) {
+        __weak id <UIAlertViewDelegate> weakSelf = self;
         self.alert = [[UIAlertView alloc] initWithTitle:@"Treasure Hunt"
                                                 message:@"You've found the treasure"
-                                               delegate:self
-                                      cancelButtonTitle:@"Stay here"
+                                               delegate:weakSelf
+                                      cancelButtonTitle:@"Cancel"
                                       otherButtonTitles:@"Get next clue",nil];
         [self.alert show];
     }
