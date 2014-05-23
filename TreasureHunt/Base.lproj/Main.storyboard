@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Startup View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="THViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="THStartupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,13 +15,47 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj7-eR-WFa">
+                                <rect key="frame" x="94" y="239" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Treasure Hunt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoFirstView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Haw-3D-MvV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0iA-O8-8U3"/>
+                    <connections>
+                        <segue destination="Fdr-EV-ziV" kind="push" identifier="gotoFirstView" id="IgP-Yo-0JP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="-185"/>
+            <point key="canvasLocation" x="496" y="-263"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="mcG-fl-iQh">
+            <objects>
+                <viewController id="Fdr-EV-ziV" customClass="THFirstViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5aX-NN-1X5"/>
+                        <viewControllerLayoutGuide type="bottom" id="0YB-eZ-von"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1WC-N7-hOZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AI1-Xc-SwF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cv-o2-NFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880" y="-263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KTN-Zv-xRT">

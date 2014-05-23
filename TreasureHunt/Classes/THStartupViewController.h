@@ -1,5 +1,5 @@
 //
-//  THViewController.h
+//  THStartupViewController.h
 //  TreasureHunt
 //
 //  Created by Thanyaluk Jirapech-umpai on 23/05/2014.
@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface THViewController : UIViewController
+@interface THStartupViewController : UIViewController
 @end

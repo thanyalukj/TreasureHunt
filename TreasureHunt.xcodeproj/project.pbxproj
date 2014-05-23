@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3044E79489914FCD48778D10 /* THProximityStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044E404EFDCA1F46329BE18 /* THProximityStyle.m */; };
+		3044E8177B3034FA3D1AC0DA /* THFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044EF7C97D3A1627C877205 /* THFirstViewController.m */; };
+		3044E94C4A7DF2B737B510E6 /* THStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044EC2C63F54DC588960A44 /* THStartupViewController.m */; };
+		3044EFA81C32084BB1FD4AA3 /* THBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044E5DEFCA04E2AF0C1E47D /* THBaseViewController.m */; };
 		9CFD989C192F4BDF00EDBC0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989B192F4BDF00EDBC0A /* Foundation.framework */; };
 		9CFD989E192F4BDF00EDBC0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989D192F4BDF00EDBC0A /* CoreGraphics.framework */; };
 		9CFD98A0192F4BDF00EDBC0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989F192F4BDF00EDBC0A /* UIKit.framework */; };
@@ -14,7 +18,6 @@
 		9CFD98A8192F4BDF00EDBC0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD98A7192F4BDF00EDBC0A /* main.m */; };
 		9CFD98AC192F4BDF00EDBC0A /* THAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD98AB192F4BDF00EDBC0A /* THAppDelegate.m */; };
 		9CFD98AF192F4BDF00EDBC0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD98AD192F4BDF00EDBC0A /* Main.storyboard */; };
-		9CFD98B2192F4BDF00EDBC0A /* THViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD98B1192F4BDF00EDBC0A /* THViewController.m */; };
 		9CFD98B4192F4BDF00EDBC0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD98B3192F4BDF00EDBC0A /* Images.xcassets */; };
 		9CFD98BB192F4BDF00EDBC0A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD98BA192F4BDF00EDBC0A /* XCTest.framework */; };
 		9CFD98BC192F4BDF00EDBC0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989B192F4BDF00EDBC0A /* Foundation.framework */; };
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3044E3E566F561F7893D16E0 /* THProximityStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THProximityStyle.h; sourceTree = "<group>"; };
+		3044E404EFDCA1F46329BE18 /* THProximityStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THProximityStyle.m; sourceTree = "<group>"; };
+		3044E5DEFCA04E2AF0C1E47D /* THBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THBaseViewController.m; sourceTree = "<group>"; };
+		3044EC2C63F54DC588960A44 /* THStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THStartupViewController.m; sourceTree = "<group>"; };
+		3044EE85481259214E285CED /* THBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THBaseViewController.h; sourceTree = "<group>"; };
+		3044EEE5C5D4AD262ECDD41E /* THFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFirstViewController.h; sourceTree = "<group>"; };
+		3044EF7C97D3A1627C877205 /* THFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFirstViewController.m; sourceTree = "<group>"; };
+		3044EFEE6C002DC5EF2253B1 /* THStartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THStartupViewController.h; sourceTree = "<group>"; };
 		639A4A38657A4BD19FEA089B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9CFD9898192F4BDF00EDBC0A /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFD989B192F4BDF00EDBC0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,8 +58,6 @@
 		9CFD98AA192F4BDF00EDBC0A /* THAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAppDelegate.h; sourceTree = "<group>"; };
 		9CFD98AB192F4BDF00EDBC0A /* THAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAppDelegate.m; sourceTree = "<group>"; };
 		9CFD98AE192F4BDF00EDBC0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9CFD98B0192F4BDF00EDBC0A /* THViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THViewController.h; sourceTree = "<group>"; };
-		9CFD98B1192F4BDF00EDBC0A /* THViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THViewController.m; sourceTree = "<group>"; };
 		9CFD98B3192F4BDF00EDBC0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9CFD98B9192F4BDF00EDBC0A /* TreasureHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreasureHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFD98BA192F4BDF00EDBC0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,6 +92,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3044E7910C3BB3399DDDFAA3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3044EC2C63F54DC588960A44 /* THStartupViewController.m */,
+				3044EFEE6C002DC5EF2253B1 /* THStartupViewController.h */,
+				3044EE85481259214E285CED /* THBaseViewController.h */,
+				3044E5DEFCA04E2AF0C1E47D /* THBaseViewController.m */,
+				3044EF7C97D3A1627C877205 /* THFirstViewController.m */,
+				3044EEE5C5D4AD262ECDD41E /* THFirstViewController.h */,
+				3044E404EFDCA1F46329BE18 /* THProximityStyle.m */,
+				3044E3E566F561F7893D16E0 /* THProximityStyle.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		9CFD988F192F4BDF00EDBC0A = {
 			isa = PBXGroup;
 			children = (
@@ -121,10 +145,9 @@
 				9CFD98AA192F4BDF00EDBC0A /* THAppDelegate.h */,
 				9CFD98AB192F4BDF00EDBC0A /* THAppDelegate.m */,
 				9CFD98AD192F4BDF00EDBC0A /* Main.storyboard */,
-				9CFD98B0192F4BDF00EDBC0A /* THViewController.h */,
-				9CFD98B1192F4BDF00EDBC0A /* THViewController.m */,
 				9CFD98B3192F4BDF00EDBC0A /* Images.xcassets */,
 				9CFD98A2192F4BDF00EDBC0A /* Supporting Files */,
+				3044E7910C3BB3399DDDFAA3 /* Classes */,
 			);
 			path = TreasureHunt;
 			sourceTree = "<group>";
@@ -293,9 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CFD98B2192F4BDF00EDBC0A /* THViewController.m in Sources */,
 				9CFD98AC192F4BDF00EDBC0A /* THAppDelegate.m in Sources */,
 				9CFD98A8192F4BDF00EDBC0A /* main.m in Sources */,
+				3044E94C4A7DF2B737B510E6 /* THStartupViewController.m in Sources */,
+				3044EFA81C32084BB1FD4AA3 /* THBaseViewController.m in Sources */,
+				3044E8177B3034FA3D1AC0DA /* THFirstViewController.m in Sources */,
+				3044E79489914FCD48778D10 /* THProximityStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +451,7 @@
 				GCC_PREFIX_HEADER = "TreasureHunt/TreasureHunt-Prefix.pch";
 				INFOPLIST_FILE = "TreasureHunt/TreasureHunt-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -439,6 +466,7 @@
 				GCC_PREFIX_HEADER = "TreasureHunt/TreasureHunt-Prefix.pch";
 				INFOPLIST_FILE = "TreasureHunt/TreasureHunt-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
