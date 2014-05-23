@@ -11,6 +11,7 @@
 		3044E79489914FCD48778D10 /* THProximityStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044E404EFDCA1F46329BE18 /* THProximityStyle.m */; };
 		3044E8177B3034FA3D1AC0DA /* THFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044EF7C97D3A1627C877205 /* THFirstViewController.m */; };
 		3044E94C4A7DF2B737B510E6 /* THStartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044EC2C63F54DC588960A44 /* THStartupViewController.m */; };
+		3044ECB174C2A6B7F0F61454 /* UIColor+Styling.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044E7B4E812CC24EB5B06D3 /* UIColor+Styling.m */; };
 		3044EFA81C32084BB1FD4AA3 /* THBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3044E5DEFCA04E2AF0C1E47D /* THBaseViewController.m */; };
 		9CFD989C192F4BDF00EDBC0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989B192F4BDF00EDBC0A /* Foundation.framework */; };
 		9CFD989E192F4BDF00EDBC0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989D192F4BDF00EDBC0A /* CoreGraphics.framework */; };
@@ -40,9 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3044E24668A2B1EF1E0BB7B2 /* UIColor+Styling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Styling.h"; sourceTree = "<group>"; };
 		3044E3E566F561F7893D16E0 /* THProximityStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THProximityStyle.h; sourceTree = "<group>"; };
 		3044E404EFDCA1F46329BE18 /* THProximityStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THProximityStyle.m; sourceTree = "<group>"; };
 		3044E5DEFCA04E2AF0C1E47D /* THBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THBaseViewController.m; sourceTree = "<group>"; };
+		3044E7B4E812CC24EB5B06D3 /* UIColor+Styling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Styling.m"; sourceTree = "<group>"; };
 		3044EC2C63F54DC588960A44 /* THStartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THStartupViewController.m; sourceTree = "<group>"; };
 		3044ED745E2AED663F1EE3F4 /* THFinalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFinalViewController.m; sourceTree = "<group>"; };
 		3044EDEE692A432AE7AFA086 /* THFinalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFinalViewController.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				9CFD98D1192F7D7300EDBC0A /* THSecondViewController.m */,
 				3044ED745E2AED663F1EE3F4 /* THFinalViewController.m */,
 				3044EDEE692A432AE7AFA086 /* THFinalViewController.h */,
+				3044E7B4E812CC24EB5B06D3 /* UIColor+Styling.m */,
+				3044E24668A2B1EF1E0BB7B2 /* UIColor+Styling.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				3044E8177B3034FA3D1AC0DA /* THFirstViewController.m in Sources */,
 				3044E79489914FCD48778D10 /* THProximityStyle.m in Sources */,
 				3044E4D2B0AD89E0A4B8DDAA /* THFinalViewController.m in Sources */,
+				3044ECB174C2A6B7F0F61454 /* UIColor+Styling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

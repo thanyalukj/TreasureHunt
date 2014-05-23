@@ -4,6 +4,7 @@
 //
 
 #import "THProximityStyle.h"
+#import "UIColor+Styling.h"
 
 
 @implementation THProximityStyle {
@@ -15,7 +16,7 @@
     switch (proximity) {
         case CLProximityFar:
             style.title = @"Too far";
-            style.colour = [UIColor blueColor];
+            style.colour = [UIColor colorFromHexString:@"#d3f1f9"];
             break;
         case CLProximityNear:
             style.title = @"Getting Closer";

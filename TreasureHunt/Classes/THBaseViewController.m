@@ -71,7 +71,7 @@
     self.detailsLabel.text = [NSString stringWithFormat:@"%0.03f - %@",
                                                         [beacon.distance floatValue], style.title];;
     [self updatePositionForDistance:[beacon.distance floatValue]];
-    if (beacon.proximity != CLProximityUnknown) {
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate) {
         [self animateShowSpecificClue];
     }
     if (!self.foundTreasure && beacon.proximity == CLProximityImmediate) {
@@ -96,6 +96,9 @@
 
 
 - (void)animateShowSpecificClue {
+    if (self.specificLabel.alpha == 1) {
+        return;
+    }
     [UIView animateWithDuration:0.5
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseOut
