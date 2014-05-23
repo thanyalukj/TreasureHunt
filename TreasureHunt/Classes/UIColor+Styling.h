@@ -7,5 +7,5 @@
 
 @interface UIColor (Styling)
 + (UIColor *)colorFromHexString:(NSString *)hexString;
-+ (UIColor *)colorWithRGBHex:(NSUInteger)color;
+- (UIColor *)colorWithRGBHex:(UInt32)hex;
 @end

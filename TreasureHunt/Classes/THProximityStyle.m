@@ -27,7 +27,7 @@
             style.colour = [UIColor greenColor];
             break;
         default:
-            style.title = @"In the middle of nowhere";
+            style.title = @"Nowhere near :(";
             style.colour = [UIColor whiteColor];
     }
     return style;
