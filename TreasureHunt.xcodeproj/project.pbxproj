@@ -21,6 +21,7 @@
 		9CFD98BD192F4BDF00EDBC0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CFD989F192F4BDF00EDBC0A /* UIKit.framework */; };
 		9CFD98C5192F4BDF00EDBC0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CFD98C3192F4BDF00EDBC0A /* InfoPlist.strings */; };
 		9CFD98C7192F4BDF00EDBC0A /* TreasureHuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFD98C6192F4BDF00EDBC0A /* TreasureHuntTests.m */; };
+		A651B84E34ED41CCB4860820 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F604EF390E544E8D800A07FA /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		639A4A38657A4BD19FEA089B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9CFD9898192F4BDF00EDBC0A /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFD989B192F4BDF00EDBC0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CFD989D192F4BDF00EDBC0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +55,7 @@
 		9CFD98C2192F4BDF00EDBC0A /* TreasureHuntTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreasureHuntTests-Info.plist"; sourceTree = "<group>"; };
 		9CFD98C4192F4BDF00EDBC0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9CFD98C6192F4BDF00EDBC0A /* TreasureHuntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreasureHuntTests.m; sourceTree = "<group>"; };
+		F604EF390E544E8D800A07FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 				9CFD989E192F4BDF00EDBC0A /* CoreGraphics.framework in Frameworks */,
 				9CFD98A0192F4BDF00EDBC0A /* UIKit.framework in Frameworks */,
 				9CFD989C192F4BDF00EDBC0A /* Foundation.framework in Frameworks */,
+				A651B84E34ED41CCB4860820 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +90,7 @@
 				9CFD98C0192F4BDF00EDBC0A /* TreasureHuntTests */,
 				9CFD989A192F4BDF00EDBC0A /* Frameworks */,
 				9CFD9899192F4BDF00EDBC0A /* Products */,
+				639A4A38657A4BD19FEA089B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +110,7 @@
 				9CFD989D192F4BDF00EDBC0A /* CoreGraphics.framework */,
 				9CFD989F192F4BDF00EDBC0A /* UIKit.framework */,
 				9CFD98BA192F4BDF00EDBC0A /* XCTest.framework */,
+				F604EF390E544E8D800A07FA /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CFD98CA192F4BDF00EDBC0A /* Build configuration list for PBXNativeTarget "TreasureHunt" */;
 			buildPhases = (
+				B44E559F41BB4114978E2DC6 /* Check Pods Manifest.lock */,
 				9CFD9894192F4BDF00EDBC0A /* Sources */,
 				9CFD9895192F4BDF00EDBC0A /* Frameworks */,
 				9CFD9896192F4BDF00EDBC0A /* Resources */,
+				1B8A8C31E58447DC8FEF10A6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +224,8 @@
 			mainGroup = 9CFD988F192F4BDF00EDBC0A;
 			productRefGroup = 9CFD9899192F4BDF00EDBC0A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+			);
 			projectRoot = "";
 			targets = (
 				9CFD9897192F4BDF00EDBC0A /* TreasureHunt */,
@@ -244,6 +254,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B8A8C31E58447DC8FEF10A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B44E559F41BB4114978E2DC6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9CFD9894192F4BDF00EDBC0A /* Sources */ = {
@@ -374,6 +417,7 @@
 		};
 		9CFD98CB192F4BDF00EDBC0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 639A4A38657A4BD19FEA089B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -387,6 +431,7 @@
 		};
 		9CFD98CC192F4BDF00EDBC0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 639A4A38657A4BD19FEA089B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
