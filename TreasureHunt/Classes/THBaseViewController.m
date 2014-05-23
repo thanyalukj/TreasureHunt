@@ -32,10 +32,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(gotoNextScreen)];
     [self setupBeaconManager];
 }
 
@@ -57,11 +53,11 @@
                                                                  minor:self.minorId
                                                             identifier:@"BeaconRegionIdentifier"];
 
-    self.beaconRegion.notifyOnEntry = YES;
-    self.beaconRegion.notifyOnExit = YES;
+//    self.beaconRegion.notifyOnEntry = YES;
+//    self.beaconRegion.notifyOnExit = YES;
 
     [self.beaconManager startRangingBeaconsInRegion:self.beaconRegion];
-    [self.beaconManager startMonitoringForRegion:self.beaconRegion];
+//    [self.beaconManager startMonitoringForRegion:self.beaconRegion];
 }
 
 #pragma mark - ESTBeaconManager delegate
@@ -77,9 +73,17 @@
     [self updatePositionForDistance:[beacon.distance floatValue]];
     if (!self.foundTreasure && beacon.proximity == CLProximityImmediate) {
         self.foundTreasure = YES;
+        [self showNextScreen];
         [self showAlert];
         [self stopTracking];
     }
+}
+
+- (void)showNextScreen {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(gotoNextScreen)];
 }
 
 - (void)showAlert {
@@ -109,25 +113,25 @@
     [self.detailsLabel setCenter:CGPointMake(self.manImageView.center.x, newY + self.manImageView.frame.size.height + 5)];
 }
 
-- (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region {
-    NSString *message = @"Approaching to right room";
-    NSLog(@"enter range");
-    self.audioPlayer = [self soundForNotification];
-    [self.audioPlayer play];
-
-    if (!self.alert.visible) {
-        self.alert = [[UIAlertView alloc] initWithTitle:@"Treasure Hunt"
-                                                message:message
-                                               delegate:nil
-                                      cancelButtonTitle:@"OK"
-                                      otherButtonTitles:nil];
-        [self.alert show];
-    }
-}
-
-- (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region {
-    NSLog(@"exit range");
-}
+//- (void)beaconManager:(ESTBeaconManager *)manager didEnterRegion:(ESTBeaconRegion *)region {
+//    NSString *message = @"Approaching to right room";
+//    NSLog(@"enter range");
+//    self.audioPlayer = [self soundForNotification];
+//    [self.audioPlayer play];
+//
+//    if (!self.alert.visible) {
+//        self.alert = [[UIAlertView alloc] initWithTitle:@"Treasure Hunt"
+//                                                message:message
+//                                               delegate:nil
+//                                      cancelButtonTitle:@"OK"
+//                                      otherButtonTitles:nil];
+//        [self.alert show];
+//    }
+//}
+//
+//- (void)beaconManager:(ESTBeaconManager *)manager didExitRegion:(ESTBeaconRegion *)region {
+//    NSLog(@"exit range");
+//}
 
 - (AVAudioPlayer *)soundForNotification {
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/alarm.wav", [[NSBundle mainBundle] resourcePath]]];
